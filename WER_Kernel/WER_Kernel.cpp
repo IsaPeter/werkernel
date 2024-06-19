@@ -78,12 +78,12 @@ NTSTATUS(WINAPI* NtNotifyChangeKey)(
 	BOOLEAN          Asynchronous
 	);
 
-NTSTATUS(WINAPI* NtSetInformationThread)(
+/*NTSTATUS(WINAPI* NtSetInformationThread)(
 	__in HANDLE ThreadHandle,
 	__in THREADINFOCLASS ThreadInformationClass,
 	__in_bcount(ThreadInformationLength) PVOID ThreadInformation,
 	__in ULONG ThreadInformationLength
-	);
+	);*/
 
 namespace native {
 	typedef enum _THREADINFOCLASS {
@@ -190,12 +190,13 @@ int InitNativeAPI()
 		ULONG            BufferSize,
 		BOOLEAN          Asynchronous
 		))GetProcAddress(hm, "NtNotifyChangeKey");
-	NtSetInformationThread = (NTSTATUS(WINAPI*)(
+
+	/*NtSetInformationThread = (NTSTATUS(WINAPI*)(
 		HANDLE ThreadHandle,
 		THREADINFOCLASS ThreadInformationClass,
 		PVOID ThreadInformation,
 		ULONG ThreadInformationLength
-		))GetProcAddress(hm, "NtSetInformationThread");
+		))GetProcAddress(hm, "NtSetInformationThread");*/
 	return 0;
 
 }
